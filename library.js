@@ -17,4 +17,13 @@ function addBookToLibrary(title, author, pages, hasRead) {
 
 function displayBooks() {
     // loops through the array and displays each book on the page
+    const container = document.querySelector(".container");
+    for (let i = 0; i < myLibrary.length; i++) {
+        const book = document.createElement("div");
+        // styling the book itself, i.e., it's "structure"
+        book.classList.add(".book");
+        // TODO: Create more elements and styling and append to book
+        // TODO: Modify text content for new elements to append to book reflecting book info
+        container.appendChild(book);
+    }
 }
