@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+}
+
+.new-book-btn {
+    height: 60px;
+    width: 60px;
+    padding: 0;
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #5995DA;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Styling the "form" tab itself */
+form {
+    background-color: #F6F7F8;
+    border: 3px solid #767676;
+    border-radius: 15px;
+    /* Can change size of form later */
+    width: 50%;
+    padding: 30px;
+}
+
+/* Ultimately puts labels on top of Input Fields */
+.form-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* Gap between form groupings */
+    margin-bottom: 20px; 
+}
+
+/* Styling for text input fields */
+.form-group input[type="text"] {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    width: 100%;
+    padding: 7px;
+    font-size: 14px;
+}
+
+.form-group label {
+    margin-bottom: 10px;
+}
+
+/* Container for radio buttons, removing default styling border */
+.read-group {
+    border: none;
+    margin-bottom: 40px;
+}
+
+/* More styling necessary for aligning labels and radio buttons */
+.read-group .radio-label {
+    display: block;
+    font-size: 14px;
+    padding: 0 20px 0 10px;
+}
+
+/* Fixing alignment of radio buttons with their labels */
+.read-group input[type="radio"] {
+    margin-top: 2px;
+}
+
+/* Positioning radio buttons is different, use float */
+.read-group .radio-label,
+.read-group input[type="radio"] {
+    float: left;
+}
+
+/* Button styling */
+.add-btn-container button {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #5995DA;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 40px;
+    cursor: pointer;
+}
+
+/* Button styling when hovering over button */
+.add-btn-container button:hover {
+    background-color: #76AEED;
+}
+
+/* Button styling when button is pressed */
+.add-btn-container button:active {
+    background-color: #407FC7;
+}
