@@ -27,3 +27,7 @@ function displayBooks() {
         container.appendChild(book);
     }
 }
+
+function createBook() {
+    
+}
