@@ -4,10 +4,55 @@
     box-sizing: border-box;
 }
 
-.navbar {
+body {
     display: flex;
+    min-height: 100vh;
 }
 
+/* Button styling for navbar */
+.navbar {
+    width: clamp(200px, 25vw, 300px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(62, 62, 90);
+    padding: 40px;
+}
+
+/* Styling "Odin Library" navbar header */
+.navbar h1 {
+    color: #FFFFFF;
+    margin-bottom: 150px;
+}
+
+/* Styliing overall container for statistics in navbar */
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 150px;
+}
+
+/* Styling for each individual row in information tab */
+.info > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Styling text for information in navbar */
+.info p {
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+/* Styling for number values in information */
+.info-val {
+    min-width: 20px;
+    text-align: right;
+}
+
+/* Styling for button when adding a new book */
 .new-book-btn {
     height: 60px;
     width: 60px;
@@ -21,14 +66,29 @@
     cursor: pointer;
 }
 
+/* Button styling when hovering over button */
+.new-book-btn:hover {
+    background-color: #76AEED;
+}
+
+/* Button styling when button is pressed */
+.new-book-btn:active {
+    background-color: #407FC7;
+}
+
 /* Styling the "form" tab itself */
 form {
     background-color: #F6F7F8;
-    border: 3px solid #767676;
+    border: 3px solid rgb(62, 62, 90);
     border-radius: 15px;
-    /* Can change size of form later */
-    width: 50%;
     padding: 30px;
+    width: clamp(350px, 40vw, 600px);
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
 }
 
 /* Ultimately puts labels on top of Input Fields */
@@ -36,7 +96,6 @@ form {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    /* Gap between form groupings */
     margin-bottom: 20px; 
 }
 
