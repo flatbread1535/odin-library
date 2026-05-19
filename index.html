@@ -33,45 +33,47 @@
         </div>
         <button class="new-book-btn">+</button>
     </div>
+
     <!-- container for all individual books in the library -->
-    <div class="container">
-        <!-- Form for creating a new book -->
-        <dialog class="book-dialog">
-            <form method="dialog">
-                <div class="form-header">
-                    <h1>Add a Book</h1>
-                    <button class="form-exit-btn">
-                        <!-- Have SVG go here -->
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" placeholder="1984" required>
-                </div>
-                <div class="form-group">
-                    <label for="author">Author</label>
-                    <input type="text" id="author" name="author" placeholder="George Orwell" required>
-                </div>
-                <div class="form-group">
-                    <label for="pages">Pages</label>
-                    <input type="number" id="pages" name="pages" placeholder="328" required>
-                </div>
-                <fieldset class="read-group">
-                    <label for="read" class="radio-label">Read</label>
-                    <input type="radio" id="read" name="has-read" value="read" checked>
-                    <label for="unread" class="radio-label">Unread</label>
-                    <input type="radio" id="unread" name="has-read" value="unread">
-                </fieldset>
-                <div class="add-btn-container">
-                    <button type="submit">Add Book</button>
-                </div>
-            </form>
-        </dialog>
-    </div>
+    <div class="container"></div>
+
+    <!-- Form for creating a new book -->
+    <dialog class="book-dialog">
+        <form method="dialog">
+            <div class="form-header">
+                <h1>Add a Book</h1>
+                <button class="form-exit-btn">
+                    <!-- Have SVG go here -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="1984" required>
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" placeholder="George Orwell" required>
+            </div>
+            <div class="form-group">
+                <label for="pages">Pages</label>
+                <input type="number" id="pages" name="pages" placeholder="328" required>
+            </div>
+            <fieldset class="read-group">
+                <label for="read" class="radio-label">Read</label>
+                <input type="radio" id="read" name="has-read" value="read" checked>
+                <label for="unread" class="radio-label">Unread</label>
+                <input type="radio" id="unread" name="has-read" value="unread">
+            </fieldset>
+            <div class="add-btn-container">
+                <button type="submit">Add Book</button>
+            </div>
+        </form>
+    </dialog>
+    
     <script src="library.js"></script>
 </body>
 

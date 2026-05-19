@@ -153,7 +153,8 @@ form {
 }
 
 /* Styling for text input fields */
-.form-group input[type="text"] {
+ .form-group input[type="text"], 
+ .form-group input[type="number"]{
     background-color: #FFFFFF;
     border: 2px solid rgb(62, 62, 90);
     border-radius: 10px;
