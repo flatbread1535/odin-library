@@ -85,10 +85,39 @@ form {
     width: clamp(350px, 40vw, 600px);
 }
 
+/* Styling for form header and exit button */
 .form-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
+}
+
+/* Styling for form header title */
+.form-header h1 {
+    margin-top: 2px;
+}
+
+/* Styling for form exit button */
+.form-exit-btn {
+    border: none;
+    background-color: #F6F7F8;
+}
+
+/* Styling for the "red x" in exit button */
+.form-exit-btn svg {
+    width: 40px;
+    height: 40px;
+    fill: #e60000;
+    cursor: pointer;
+}
+
+
+.form-exit-btn svg:hover {
+    fill: #fe3f3f;
+}
+
+.form-exit-btn svg:active {
+    fill: #e60000;
 }
 
 /* Ultimately puts labels on top of Input Fields */
