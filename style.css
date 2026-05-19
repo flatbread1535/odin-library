@@ -88,8 +88,10 @@ body {
 
 /* Book dialog styling, particularly for positioning and matching form */
 .book-dialog {
+    background-color: #ededed;
+    border: 3px solid rgb(62, 62, 90);
+    border-radius: 15px;
     margin: auto;
-    border: none;
     border-radius: 15px;
     transform: translateX(clamp(0px, 12vw, 150px));
 }
@@ -101,9 +103,6 @@ body {
 
 /* Styling the "form" tab itself */
 form {
-    background-color: #F6F7F8;
-    border: 3px solid rgb(62, 62, 90);
-    border-radius: 15px;
     padding: 30px;
     width: clamp(350px, 40vw, 600px);
 }
@@ -117,13 +116,14 @@ form {
 
 /* Styling for form header title */
 .form-header h1 {
+    color: rgb(62, 62, 90);
     margin-top: 2px;
 }
 
 /* Styling for form exit button */
 .form-exit-btn {
     border: none;
-    background-color: #F6F7F8;
+    background-color: #ededed;
 }
 
 /* Styling for the "red x" in exit button */
@@ -145,6 +145,7 @@ form {
 
 /* Ultimately puts labels on top of Input Fields */
 .form-group {
+    color: rgb(62, 62, 90);
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -154,8 +155,8 @@ form {
 /* Styling for text input fields */
 .form-group input[type="text"] {
     background-color: #FFFFFF;
-    border: 1px solid #D6D9DC;
-    border-radius: 3px;
+    border: 2px solid rgb(62, 62, 90);
+    border-radius: 10px;
     width: 100%;
     padding: 7px;
     font-size: 14px;
