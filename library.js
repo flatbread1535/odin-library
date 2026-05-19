@@ -21,12 +21,24 @@ function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         const book = document.createElement("div");
         // styling the book itself, i.e., it's "structure"
-        book.classList.add(".book");
+        book.classList.add("book");
         // TODO: Create more elements and styling and append to book
         // TODO: Modify text content for new elements to append to book reflecting book info
         container.appendChild(book);
     }
 }
+
+const newBookButton = document.querySelector(".new-book-btn");
+const dialog = document.querySelector(".book-dialog");
+newBookButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+const exitButton = document.querySelector(".form-exit-btn");
+exitButton.addEventListener("click", () => {
+    event.preventDefault();
+    dialog.close();
+});
 
 function createBook() {
     

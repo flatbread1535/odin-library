@@ -76,6 +76,19 @@ body {
     background-color: #407FC7;
 }
 
+/* Book dialog styling, particularly for positioning and matching form */
+.book-dialog {
+    margin: auto;
+    border: none;
+    border-radius: 15px;
+    transform: translateX(clamp(0px, 12vw, 150px));
+}
+
+/* Styles shaded background with dialog pops up */
+.book-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
 /* Styling the "form" tab itself */
 form {
     background-color: #F6F7F8;
@@ -171,7 +184,7 @@ form {
     font-size: 16px;
     font-weight: bold;
     color: #FFFFFF;
-    background-color: #5995DA;
+    background-color: #59da97;
     border: none;
     border-radius: 3px;
     padding: 10px 40px;
@@ -180,10 +193,10 @@ form {
 
 /* Button styling when hovering over button */
 .add-btn-container button:hover {
-    background-color: #76AEED;
+    background-color: #47fd9f;
 }
 
 /* Button styling when button is pressed */
 .add-btn-container button:active {
-    background-color: #407FC7;
+    background-color: #59da97;
 }

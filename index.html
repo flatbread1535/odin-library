@@ -34,8 +34,8 @@
     <!-- container for all individual books in the library -->
     <div class="container">
         <!-- Form for creating a new book -->
-        <dialogue>
-            <form method="dialogue">
+        <dialog class="book-dialog">
+            <form method="dialog">
                 <div class="form-header">
                     <h1>Add a Book</h1>
                     <button class="form-exit-btn">
@@ -65,10 +65,10 @@
                     <input type="radio" id="unread" name="has-read" value="unread">
                 </fieldset>
                 <div class="add-btn-container">
-                    <button>Add Book</button>
+                    <button type="submit">Add Book</button>
                 </div>
             </form>
-        </dialogue>
+        </dialog>
     </div>
     <script src="library.js"></script>
 </body>
