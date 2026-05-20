@@ -11,15 +11,14 @@ newBookButton.addEventListener("click", () => {
 
 /* Listener for exit button to exit the modal */
 const exitButton = document.querySelector(".form-exit-btn");
-exitButton.addEventListener("click", () => {
+exitButton.addEventListener("click", (event) => {
     event.preventDefault();
     form.reset();
     dialog.close();
 });
 
 /* Listener for submit button to submit the form */
-const submit = document.querySelector("button[type=\"submit\"]");
-submit.addEventListener("click", () => {
+form.addEventListener("submit", (event) => {
     event.preventDefault();
     createBook();
     form.reset();
@@ -86,12 +85,43 @@ function displayBooks() {
         bookCard.classList.add("book-card");
         container.appendChild(bookCard);
 
+        // Creates sections of book tab for display styling
         const bookCardTop = document.createElement("div");
         const bookCardBottom = document.createElement("div");
         bookCardTop.classList.add("book-card-top");
         bookCardBottom.classList.add("book-card-bottom");
         bookCard.appendChild(bookCardTop);
         bookCard.appendChild(bookCardBottom);
+
+        // Adds information to the books
+        const title = document.createElement("p");
+        const author = document.createElement("p");
+        const pages = document.createElement("p");
+        title.classList.add("book-title");
+        author.classList.add("book-author");
+        pages.classList.add("book-pages");
+        title.textContent = bookObject.title;
+        author.textContent = bookObject.author;
+        pages.textContent = bookObject.pages;
+        bookCardTop.appendChild(title);
+        bookCardTop.appendChild(author);
+        bookCardTop.appendChild(pages);
+
+        // Adds buttons at bottom of book to indicate if book has been read
+        // Or to delete the book from the display
+        const hasReadBtn = document.createElement("button");
+        if (bookObject.hasRead === "read") {
+            hasReadBtn.classList.add("read-btn");
+            hasReadBtn.textContent = "Read";
+        } else {
+            hasReadBtn.classList.add("unread-btn");
+            hasReadBtn.textContent = "Unread";
+        }
+        bookCardBottom.appendChild(hasReadBtn);
+
+        const removeBtn = document.createElement("button");
+        removeBtn.classList.add("remove-btn");
+        bookCardBottom.appendChild(removeBtn);
     }
 }
 
