@@ -34,6 +34,14 @@ function Book(title, author, pages, hasRead) {
     this.id = crypto.randomUUID();
 }
 
+Book.prototype.changeReadStatus = function () {
+    if (this.hasRead === "read") {
+        this.hasRead = "unread";
+    } else {
+        this.hasRead = "read";
+    }
+};
+
 /* Constructs a new book object and adds the book to the library */
 function addBookToLibrary(title, author, pages, hasRead) {
     // take params, create a book then store it in the array
@@ -52,7 +60,6 @@ function addBookInfo(book) {
     bookNumInfo.textContent = bookNum;
 
     // Adds to complete or incomplete books number
-    const readValue = document.querySelector('input[name="has-read"]:checked').value;
     if (book.hasRead === "read") {
         const completeInfo = document.querySelector(".complete-books .info-val");
         let completeNum = Number(completeInfo.textContent);
@@ -81,7 +88,6 @@ function removeBookInfo(book) {
     bookNumInfo.textContent = bookNum;
 
     // Subtracts from complete or incomplete books number
-    const readValue = document.querySelector('input[name="has-read"]:checked').value;
     if (book.hasRead === "read") {
         const completeInfo = document.querySelector(".complete-books .info-val");
         let completeNum = Number(completeInfo.textContent);
@@ -99,6 +105,26 @@ function removeBookInfo(book) {
     let pageNum = Number(pageNumInfo.textContent);
     pageNum -= book.pages;
     pageNumInfo.textContent = pageNum;
+}
+
+/* Updates sidebar information when changing read status */
+function updateReadInfo(oldStatus, newStatus) {
+    const completeInfo = document.querySelector(".complete-books .info-val");
+    const incompleteInfo = document.querySelector(".incomplete-books .info-val");
+
+    let completeNum = Number(completeInfo.textContent);
+    let incompleteNum = Number(incompleteInfo.textContent);
+
+    if (oldStatus === "read" && newStatus === "unread") {
+        completeNum--;
+        incompleteNum++;
+    } else if (oldStatus === "unread" && newStatus === "read") {
+        completeNum++;
+        incompleteNum--;
+    }
+
+    completeInfo.textContent = completeNum;
+    incompleteInfo.textContent = incompleteNum;
 }
 
 /* Displays each book tab on the webpage */
@@ -152,6 +178,13 @@ function displayBooks() {
             hasReadBtn.textContent = "Unread";
         }
         bookBtns.appendChild(hasReadBtn);
+
+        hasReadBtn.addEventListener("click", () => {
+            const oldStatus = bookObject.hasRead;
+            bookObject.changeReadStatus();
+            updateReadInfo(oldStatus, bookObject.hasRead);
+            displayBooks();
+        });
 
         const removeBtn = document.createElement("button");
         removeBtn.classList.add("remove-btn");
