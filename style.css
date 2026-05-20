@@ -86,6 +86,123 @@ body {
     background-color: #407FC7;
 }
 
+/* Styling for container grid for each book card */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+    grid-auto-rows: auto;
+    gap: 20px;
+    padding: 30px;
+    align-content: start;
+}
+
+/* The overall container for the book */
+.book-card {
+    height: 300px;
+    width: 250px;
+    border-radius: 15px;
+    display: grid;
+    grid-template-rows: 60% 40%;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.50);
+}
+
+/* Gray top half of book tab with text information */
+.book-card-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #ededed;
+}
+
+/* Text styling for top half of book tab */
+.book-card-top p {
+    font-family: Roboto;
+}
+
+/* Styling for book tab title */
+.book-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Styling for bottom half of book tab */
+.book-card-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(62, 62, 90);
+}
+
+/* Styling for container containing read and delete buttons */
+.book-btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Styling for read/unread button in book tab */
+.read-btn,
+.unread-btn {
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Color for read button */
+.read-btn {
+    background-color: #59da97;
+}
+
+/* Color for unread button */
+.unread-btn {
+    background-color: #e60000;
+}
+
+.unread-btn:hover {
+    background-color: #fe3f3f;
+}
+
+.unread-btn:active {
+    background-color: #e60000;
+}
+
+/* Styling for button to remove book tab */
+.remove-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e60000;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.remove-btn:hover {
+    background-color: #fe3f3f;
+}
+
+.remove-btn:active {
+    background-color: #e60000;
+}
+
+/* Styling for trash can icon */
+.remove-btn img {
+    width: 20px;
+    height: 20px;
+}
+
 /* Book dialog styling, particularly for positioning and matching form */
 .book-dialog {
     background-color: #ededed;
@@ -133,7 +250,6 @@ form {
     fill: #e60000;
     cursor: pointer;
 }
-
 
 .form-exit-btn svg:hover {
     fill: #fe3f3f;
@@ -204,11 +320,13 @@ form {
 }
 
 /* Button styling when hovering over button */
+.read-btn:hover,
 .add-btn-container button:hover {
     background-color: #47fd9f;
 }
 
 /* Button styling when button is pressed */
+.read-btn:active,
 .add-btn-container button:active {
     background-color: #59da97;
 }

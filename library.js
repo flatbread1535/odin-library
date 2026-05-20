@@ -79,7 +79,7 @@ function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         // Get book object itself for data
         const bookObject = myLibrary[i];
-        
+
         // Grab the book card, add the class for styling, and append
         const bookCard = document.createElement("div");
         bookCard.classList.add("book-card");
@@ -101,14 +101,18 @@ function displayBooks() {
         author.classList.add("book-author");
         pages.classList.add("book-pages");
         title.textContent = bookObject.title;
-        author.textContent = bookObject.author;
-        pages.textContent = bookObject.pages;
+        author.textContent = "by " + bookObject.author;
+        pages.textContent = bookObject.pages + " pages";
         bookCardTop.appendChild(title);
         bookCardTop.appendChild(author);
         bookCardTop.appendChild(pages);
 
         // Adds buttons at bottom of book to indicate if book has been read
         // Or to delete the book from the display
+        const bookBtns = document.createElement("div");
+        bookBtns.classList.add("book-btns");
+        bookCardBottom.appendChild(bookBtns);
+
         const hasReadBtn = document.createElement("button");
         if (bookObject.hasRead === "read") {
             hasReadBtn.classList.add("read-btn");
@@ -117,11 +121,16 @@ function displayBooks() {
             hasReadBtn.classList.add("unread-btn");
             hasReadBtn.textContent = "Unread";
         }
-        bookCardBottom.appendChild(hasReadBtn);
+        bookBtns.appendChild(hasReadBtn);
 
         const removeBtn = document.createElement("button");
         removeBtn.classList.add("remove-btn");
-        bookCardBottom.appendChild(removeBtn);
+
+        const deleteSvg = document.createElement("img");
+        deleteSvg.src = "./svgs/delete.svg";
+        deleteSvg.alt = "remove book";
+        removeBtn.appendChild(deleteSvg);
+        bookBtns.appendChild(removeBtn);
     }
 }
 
@@ -132,5 +141,5 @@ function createBook() {
     const pages = Number(form.elements["pages"].value);
     const hasRead = form.elements["has-read"].value;
 
-    addBookToLibrary(title, author, pages, hasRead);   
+    addBookToLibrary(title, author, pages, hasRead);
 }
