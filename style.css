@@ -210,7 +210,6 @@ body {
     border: 3px solid rgb(62, 62, 90);
     border-radius: 15px;
     margin: auto;
-    border-radius: 15px;
     transform: translateX(clamp(0px, 12vw, 150px));
 }
 
