@@ -169,6 +169,7 @@ function displayBooks() {
         bookBtns.classList.add("book-btns");
         bookCardBottom.appendChild(bookBtns);
 
+        // Adds a button that determines the read status of the book
         const hasReadBtn = document.createElement("button");
         if (bookObject.hasRead === "read") {
             hasReadBtn.classList.add("read-btn");
@@ -179,6 +180,7 @@ function displayBooks() {
         }
         bookBtns.appendChild(hasReadBtn);
 
+        // An event listener to change the read status of book if clicked
         hasReadBtn.addEventListener("click", () => {
             const oldStatus = bookObject.hasRead;
             bookObject.changeReadStatus();
@@ -186,16 +188,19 @@ function displayBooks() {
             displayBooks();
         });
 
+        // Adds a remove button to the book tab
         const removeBtn = document.createElement("button");
         removeBtn.classList.add("remove-btn");
         removeBtn.dataset.id = bookObject.id;
 
+        // Adds a delete SVG icon to the remove button
         const deleteSvg = document.createElement("img");
         deleteSvg.src = "./svgs/delete.svg";
         deleteSvg.alt = "remove book";
         removeBtn.appendChild(deleteSvg);
         bookBtns.appendChild(removeBtn);
 
+        // An event listener to remove a book tab from the library if clicked
         removeBtn.addEventListener("click", () => {
             removeBook(removeBtn.dataset.id);
         });
@@ -212,6 +217,7 @@ function createBook() {
     addBookToLibrary(title, author, pages, hasRead);
 }
 
+/* Finds the book to be removed and removes it from the library */
 function removeBook(bookId) {
     for (let i = 0; i < myLibrary.length; i++) {
         if (myLibrary[i].id === bookId) {
