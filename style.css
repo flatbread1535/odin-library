@@ -88,6 +88,7 @@ body {
 
 /* Styling for container grid for each book card */
 .container {
+    flex: 1;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
     grid-auto-rows: auto;

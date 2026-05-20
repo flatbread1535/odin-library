@@ -53,7 +53,7 @@ function addBookInfo(book) {
 
     // Adds to complete or incomplete books number
     const readValue = document.querySelector('input[name="has-read"]:checked').value;
-    if (readValue === "read") {
+    if (book.hasRead === "read") {
         const completeInfo = document.querySelector(".complete-books .info-val");
         let completeNum = Number(completeInfo.textContent);
         completeNum++;
@@ -72,6 +72,36 @@ function addBookInfo(book) {
     pageNumInfo.textContent = pageNum;
 }
 
+/* Updates sidebar information when book is deleted */
+function removeBookInfo(book) {
+    // Subtracts total book number
+    const bookNumInfo = document.querySelector(".book-num .info-val");
+    let bookNum = Number(bookNumInfo.textContent);
+    bookNum--;
+    bookNumInfo.textContent = bookNum;
+
+    // Subtracts from complete or incomplete books number
+    const readValue = document.querySelector('input[name="has-read"]:checked').value;
+    if (book.hasRead === "read") {
+        const completeInfo = document.querySelector(".complete-books .info-val");
+        let completeNum = Number(completeInfo.textContent);
+        completeNum--;
+        completeInfo.textContent = completeNum;
+    } else {
+        const incompleteInfo = document.querySelector(".incomplete-books .info-val");
+        let incompleteNum = Number(incompleteInfo.textContent);
+        incompleteNum--;
+        incompleteInfo.textContent = incompleteNum;
+    }
+
+    // Subtracts from the total page number
+    const pageNumInfo = document.querySelector(".total-pages .info-val");
+    let pageNum = Number(pageNumInfo.textContent);
+    pageNum -= book.pages;
+    pageNumInfo.textContent = pageNum;
+}
+
+/* Displays each book tab on the webpage */
 function displayBooks() {
     // loops through the array and displays each book on the page
     const container = document.querySelector(".container");
@@ -125,12 +155,17 @@ function displayBooks() {
 
         const removeBtn = document.createElement("button");
         removeBtn.classList.add("remove-btn");
+        removeBtn.dataset.id = bookObject.id;
 
         const deleteSvg = document.createElement("img");
         deleteSvg.src = "./svgs/delete.svg";
         deleteSvg.alt = "remove book";
         removeBtn.appendChild(deleteSvg);
         bookBtns.appendChild(removeBtn);
+
+        removeBtn.addEventListener("click", () => {
+            removeBook(removeBtn.dataset.id);
+        });
     }
 }
 
@@ -142,4 +177,16 @@ function createBook() {
     const hasRead = form.elements["has-read"].value;
 
     addBookToLibrary(title, author, pages, hasRead);
+}
+
+function removeBook(bookId) {
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].id === bookId) {
+            const removedBook = myLibrary[i];
+            myLibrary.splice(i, 1);
+            removeBookInfo(removedBook);
+            displayBooks();
+            break;
+        }
+    }
 }
